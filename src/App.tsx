@@ -5,20 +5,42 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form className="container justify-content-center">
+
+
+        <div className="row ">
+          <div className="form-group">
+            TOP
+          </div>
+          <div className="input-group form-group">
+            <input type="text" placeholder="Top laner username" aria-label="Top laner username" />
+            <div className="input-group-append">
+              <select className="form-select" aria-label="Default select example">
+                <option value="eun1">EUNE</option>
+                <option value="euw1">EUW</option>
+                <option value="na1">NA</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="form-group">
+            TOP
+          </div>
+          <div className="input-group form-group">
+            <input type="text" placeholder="Top laner username" aria-label="Top laner username" />
+            <div className="input-group-append">
+              <select className="form-select" aria-label="Default select example">
+                <option value="eun1">EUNE</option>
+                <option value="euw1">EUW</option>
+                <option value="na1">NA</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </form>
     </div>
   );
 }
