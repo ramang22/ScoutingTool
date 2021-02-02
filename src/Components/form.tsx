@@ -93,7 +93,7 @@ export class FormApp extends React.Component<AppProps, ITestState> {
 
     render() {
         return (
-            <Form>
+            <Form className="align-items-center">
                 {/* TOP laner */}
                 <Form.Group controlId="formGroupEmail">
                     <Image src={topLogo} style={logoStyle} />
@@ -122,7 +122,7 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                 {/* JUNGLER */}
                 <Form.Group controlId="formGroupEmail">
                     <Image src={jungleLogo} style={logoStyle} />
-                    <Form.Label>JUNGLE</Form.Label>
+                    <Form.Label>Jungle</Form.Label>
                     <InputGroup>
                         <FormControl
                             placeholder="Jungler's username"
@@ -150,8 +150,8 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                     <Form.Label>MID</Form.Label>
                     <InputGroup>
                         <FormControl
-                            placeholder="Mid laner's username"
-                            aria-label="Mid laner's username"
+                            placeholder="MID laner's username"
+                            aria-label="MID laner's username"
                             aria-describedby="basic-addon2"
                             value={this.state.midName}
                             onChange={e => this.setState({ midName: e.target.value })}
@@ -170,7 +170,7 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                 </Form.Group>
                 
                 {/* ADC */}
-                <Form.Group controlId="formGroupEmail">
+                <Form.Group controlId="formGroupEmail" >
                     <Image src={adcLogo} style={logoStyle} />
                     <Form.Label>ADC</Form.Label>
                     <InputGroup>

@@ -3,7 +3,10 @@ import './App.css';
 import Navbar from 'react-bootstrap/Navbar'
 import Logo from './logo.svg'
 import FormApp from './Components/form'
-import InputGroup from 'react-bootstrap/InputGroup'
+import OpggApp from './Components/opgg'
+import Card from 'react-bootstrap/Card'
+
+
 interface AppProps {
 
 }
@@ -43,42 +46,75 @@ export class App extends React.Component<AppProps, ITestState> {
 
 
 
-        
 
-          <div className="container" onChange={this.handleChange}>
-  <div className="row">
-    <div className="col-sm">
-    <input type="radio" value="form" name="type" /> Form
-    </div>
-    <div className="col-sm">
-    <input type="radio" value="opgg" name="type" /> multi.op.gg
-    </div>
-  
-  </div>
-</div>
+          <div className="row">
+            <div className="col"></div>
+            <div className="col">
 
-            
-        
-      </div>
-          <div>
-            {this.state.formRender ?
-              (
-                  <div className="row">
-                    <div className="col"></div>
-                    <div className="col"><FormApp /></div>
-                    <div className="col"></div>
+              <Card
+                bg="dark"
+                text="white"
+                border="light">
+                <Card.Body>
+                  <Card.Title>Welcome!</Card.Title>
+                  <Card.Text>
+                    Select input style for scouting!
+                      </Card.Text>
+                  <div className="container" onChange={this.handleChange}>
+                    <div className="form-check form-check-inline">
+                      <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                      <label className="form-check-label" >Normal</label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                      <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                      <label className="form-check-label" >OP.GG</label>
+                    </div>
                   </div>
-
-                
-              ) : (
-                <div>
-                  OP.GG
-                </div>
-              )}
+                </Card.Body>
+              </Card>
+            </div>
+            <div className="col"></div>
           </div>
         </div>
+        <div>
+          {this.state.formRender ?
+            (
+              <div className="row">
+                <div className="col"></div>
+                <div className="col">
+                  <Card
+                    style={{ padding: '10px' }}>
+                    <FormApp />
+                  </Card>
+                </div>
+                <div className="col"></div>
+              </div>
 
-      
+
+            ) : (
+              <div className="row">
+                <div className="col"></div>
+                <div className="col">
+                  <Card
+                    style={{ padding: '10px' }}>
+                    <OpggApp />
+                  </Card>
+                </div>
+                <div className="col"></div>
+              </div>
+            )}
+        </div>
+
+        <Navbar fixed="bottom" style={{ marginTop: '20px' }} bg="dark" variant="dark"  >
+          <Navbar.Text>
+            opensource at @<a href="https://github.com/ramang22/ScoutingTool">ramang22/ScoutingTool</a>
+          </Navbar.Text>
+
+        </Navbar>
+
+      </div>
+
+
     );
   }
 }
