@@ -14,7 +14,8 @@ import adcLogo from '../assets/ranked-positions/Position_Grandmaster-Bot.png'
 import suppLogo from '../assets/ranked-positions/Position_Grandmaster-Support.png'
 
 
-const logoStyle = { maxHeight: '35px', maxWidth: '35px', }
+const logoStyle = { maxHeight: '38px', maxWidth: '38px', marginRight : '10px' }
+const roleStyle = {minWidth:"82px"}
 interface AppProps {
 
 }
@@ -93,14 +94,17 @@ export class FormApp extends React.Component<AppProps, ITestState> {
 
     render() {
         return (
-            <Form className="align-items-center">
+            <Form >
                 {/* TOP laner */}
                 <Form.Group controlId="formGroupEmail">
-                    <Image src={topLogo} style={logoStyle} />
-                    <Form.Label>TOP</Form.Label>
-                    <InputGroup>
+                       
+                        <InputGroup>
+                        <InputGroup.Prepend>
+                            <Image src={topLogo} style={logoStyle} />
+                            <InputGroup.Text id="basic-addon1" style={roleStyle}>Top</InputGroup.Text>
+                        </InputGroup.Prepend>
                         <FormControl
-                            placeholder="TOP laner's username"
+                            placeholder="Username"
                             aria-label="TOP laner's username"
                             aria-describedby="basic-addon2"
                             value={this.state.topName}
@@ -108,7 +112,8 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                         />
                         <DropdownButton
                             as={InputGroup.Append}
-                            variant="outline-secondary"
+                            variant="danger"
+                            // className="danger"
                             title={this.state.topRegion}
                             id="input-group-dropdown-2"
                         >
@@ -121,11 +126,13 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                 
                 {/* JUNGLER */}
                 <Form.Group controlId="formGroupEmail">
-                    <Image src={jungleLogo} style={logoStyle} />
-                    <Form.Label>Jungle</Form.Label>
                     <InputGroup>
+                    <InputGroup.Prepend>
+                            <Image src={jungleLogo} style={logoStyle} />
+                            <InputGroup.Text id="basic-addon1" style={roleStyle} >Jungle</InputGroup.Text>
+                        </InputGroup.Prepend>
                         <FormControl
-                            placeholder="Jungler's username"
+                            placeholder="Username"
                             aria-label="Jungler's username"
                             aria-describedby="basic-addon2"
                             value={this.state.jungleName}
@@ -133,7 +140,7 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                         />
                         <DropdownButton
                             as={InputGroup.Append}
-                            variant="outline-secondary"
+                            variant="danger"
                             title={this.state.jungleRegion}
                             id="input-group-dropdown-2"
                         >
@@ -146,11 +153,15 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                 
                 {/* MID */}
                 <Form.Group controlId="formGroupEmail">
-                    <Image src={midLogo} style={logoStyle} />
-                    <Form.Label>MID</Form.Label>
                     <InputGroup>
+
+                          <InputGroup.Prepend>
+                            <Image src={midLogo} style={logoStyle} />
+                            <InputGroup.Text id="basic-addon1" style={roleStyle} >Mid</InputGroup.Text>
+                        </InputGroup.Prepend>
+
                         <FormControl
-                            placeholder="MID laner's username"
+                            placeholder="Username"
                             aria-label="MID laner's username"
                             aria-describedby="basic-addon2"
                             value={this.state.midName}
@@ -158,7 +169,7 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                         />
                         <DropdownButton
                             as={InputGroup.Append}
-                            variant="outline-secondary"
+                            variant="danger"
                             title={this.state.midRegion}
                             id="input-group-dropdown-2"
                         >
@@ -171,11 +182,15 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                 
                 {/* ADC */}
                 <Form.Group controlId="formGroupEmail" >
-                    <Image src={adcLogo} style={logoStyle} />
-                    <Form.Label>ADC</Form.Label>
                     <InputGroup>
+
+                    <InputGroup.Prepend>
+                            <Image src={adcLogo} style={logoStyle} />
+                            <InputGroup.Text id="basic-addon1" style={roleStyle} >Carry</InputGroup.Text>
+                        </InputGroup.Prepend>
+
                         <FormControl
-                            placeholder="ADC's username"
+                            placeholder="Username"
                             aria-label="ADC's username"
                             aria-describedby="basic-addon2"
                             value={this.state.adcName}
@@ -183,7 +198,7 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                         />
                         <DropdownButton
                             as={InputGroup.Append}
-                            variant="outline-secondary"
+                            variant="danger"
                             title={this.state.adcRegion}
                             id="input-group-dropdown-2"
                         >
@@ -196,11 +211,14 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                 
                 {/* SUPP */}
                 <Form.Group controlId="formGroupEmail">
-                    <Image src={suppLogo} style={logoStyle} />
-                    <Form.Label>Support</Form.Label>
                     <InputGroup>
+
+                    <InputGroup.Prepend>
+                            <Image src={suppLogo} style={logoStyle} />
+                            <InputGroup.Text id="basic-addon1" style={roleStyle} >Support</InputGroup.Text>
+                        </InputGroup.Prepend>
                         <FormControl
-                            placeholder="Support's username"
+                            placeholder="Username"
                             aria-label="Support's username"
                             aria-describedby="basic-addon2"
                             value={this.state.suppName}
@@ -208,7 +226,7 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                         />
                         <DropdownButton
                             as={InputGroup.Append}
-                            variant="outline-secondary"
+                            variant="danger"
                             title={this.state.suppRegion}
                             id="input-group-dropdown-2"
                         >
