@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ScoutingTool/static/css/main.bde9b928.chunk.css",
-    "main.js": "/ScoutingTool/static/js/main.1678d450.chunk.js",
-    "main.js.map": "/ScoutingTool/static/js/main.1678d450.chunk.js.map",
+    "main.css": "/ScoutingTool/static/css/main.7860eb26.chunk.css",
+    "main.js": "/ScoutingTool/static/js/main.a453e0d2.chunk.js",
+    "main.js.map": "/ScoutingTool/static/js/main.a453e0d2.chunk.js.map",
     "runtime-main.js": "/ScoutingTool/static/js/runtime-main.1ea9569f.js",
     "runtime-main.js.map": "/ScoutingTool/static/js/runtime-main.1ea9569f.js.map",
     "static/css/2.658248ec.chunk.css": "/ScoutingTool/static/css/2.658248ec.chunk.css",
-    "static/js/2.50bd9785.chunk.js": "/ScoutingTool/static/js/2.50bd9785.chunk.js",
-    "static/js/2.50bd9785.chunk.js.map": "/ScoutingTool/static/js/2.50bd9785.chunk.js.map",
+    "static/js/2.d6c363e5.chunk.js": "/ScoutingTool/static/js/2.d6c363e5.chunk.js",
+    "static/js/2.d6c363e5.chunk.js.map": "/ScoutingTool/static/js/2.d6c363e5.chunk.js.map",
     "static/js/3.74e9bdb6.chunk.js": "/ScoutingTool/static/js/3.74e9bdb6.chunk.js",
     "static/js/3.74e9bdb6.chunk.js.map": "/ScoutingTool/static/js/3.74e9bdb6.chunk.js.map",
     "index.html": "/ScoutingTool/index.html",
     "static/css/2.658248ec.chunk.css.map": "/ScoutingTool/static/css/2.658248ec.chunk.css.map",
-    "static/css/main.bde9b928.chunk.css.map": "/ScoutingTool/static/css/main.bde9b928.chunk.css.map",
-    "static/js/2.50bd9785.chunk.js.LICENSE.txt": "/ScoutingTool/static/js/2.50bd9785.chunk.js.LICENSE.txt",
+    "static/css/main.7860eb26.chunk.css.map": "/ScoutingTool/static/css/main.7860eb26.chunk.css.map",
+    "static/js/2.d6c363e5.chunk.js.LICENSE.txt": "/ScoutingTool/static/js/2.d6c363e5.chunk.js.LICENSE.txt",
     "static/media/Position_Grandmaster-Jungle.4ffa0d47.png": "/ScoutingTool/static/media/Position_Grandmaster-Jungle.4ffa0d47.png",
     "static/media/logo.6ce24c58.svg": "/ScoutingTool/static/media/logo.6ce24c58.svg",
     "static/media/opgg.bdb07702.png": "/ScoutingTool/static/media/opgg.bdb07702.png"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.1ea9569f.js",
     "static/css/2.658248ec.chunk.css",
-    "static/js/2.50bd9785.chunk.js",
-    "static/css/main.bde9b928.chunk.css",
-    "static/js/main.1678d450.chunk.js"
+    "static/js/2.d6c363e5.chunk.js",
+    "static/css/main.7860eb26.chunk.css",
+    "static/js/main.a453e0d2.chunk.js"
   ]
 }
