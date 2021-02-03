@@ -27,6 +27,11 @@ export class App extends React.Component<AppProps, ITestState> {
     this.setState({ formRender: !this.state.formRender });
   }
 
+  componentDidMount(){
+    document.title = "Scouting Tool"
+  }
+
+
   render() {
     return (
       <div className="App">
