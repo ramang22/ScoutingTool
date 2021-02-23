@@ -1,1 +1,1 @@
-export const SERVER_URL = 'foo';
+export const SERVER_URL = 'https://git.heroku.com/draft-scouting.git';

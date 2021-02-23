@@ -110,7 +110,16 @@ export class FormApp extends React.Component<AppProps, ITestState> {
             adc : adc,
             support : supp,
          };
-        const response = await axios.post(SERVER_URL, request);
+        console.log(request);
+        // const options = {
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '<origin> | *',
+        //         'Access-Control-Allow-Credentials': 'true'        }
+        //   };
+          
+        // const response = await axios.post(SERVER_URL+"/", request,options);
+        const response = await axios.post(SERVER_URL+"/", request)
+        console.log(response)
     }
 
     render() {
