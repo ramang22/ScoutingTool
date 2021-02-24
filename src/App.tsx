@@ -44,7 +44,7 @@ export class App extends React.Component<AppProps, ITestState> {
               height="30"
               className="d-inline-block align-top"
             />{' '}
-      Scouting Tool - Alpha 0.0.1
+      Scouting Tool - Alpha 0.0.2
     </Navbar.Brand>
         </Navbar>
         <div>

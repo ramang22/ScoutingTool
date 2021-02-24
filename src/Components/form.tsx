@@ -126,7 +126,15 @@ export class FormApp extends React.Component<AppProps, ITestState> {
             };
     
             let xlsx_name = this.state.topName + "_" + this.state.jungleName + "_" + this.state.midName + "_" + this.state.adcName + "_" + this.state.suppName + "_" + Date().toLocaleString()
-            axios.post(SERVER_URL + "/", request, { responseType: 'blob' }).then(function (response) {
+            const headers = {
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Credentials" : true,
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+                "Access-Control-Allow-Headers": 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json'
+            };
+
+            
+            axios.post(SERVER_URL + "/", request, { responseType: 'blob', headers:headers }).then(function (response) {
                 console.log(response)
                 const blob = new Blob(
                     [response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
