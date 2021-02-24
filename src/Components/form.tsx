@@ -13,10 +13,12 @@ import midLogo from '../assets/ranked-positions/Position_Grandmaster-Mid.png'
 import adcLogo from '../assets/ranked-positions/Position_Grandmaster-Bot.png'
 import suppLogo from '../assets/ranked-positions/Position_Grandmaster-Support.png'
 import { SERVER_URL } from '../Constants/url'
+import FadeIn from "react-fade-in";
+import ReactLoading from "react-loading";
 
 const logoStyle = { maxHeight: '38px', maxWidth: '38px', marginRight: '10px' }
 const roleStyle = { minWidth: "82px" }
-const regionStyle = { minWidth : "70px"}
+const regionStyle = { minWidth: "70px" }
 
 interface AppProps {
 
@@ -34,7 +36,10 @@ interface ITestState {
     midName: string;
     adcName: string;
     suppName: string;
+    load: boolean
+
 }
+
 
 export type SelectCallback = (
     eventKey: string | null,
@@ -42,6 +47,8 @@ export type SelectCallback = (
 ) => void;
 
 export class FormApp extends React.Component<AppProps, ITestState> {
+
+
 
     constructor(props: AppProps) {
         super(props);
@@ -60,7 +67,10 @@ export class FormApp extends React.Component<AppProps, ITestState> {
             adcName: "",
 
             suppRegion: "Region",
-            suppName: ""
+            suppName: "",
+
+            load: false,
+
         };
         this.handleSelectTop = this.handleSelectTop.bind(this);
         this.handleSelectJungle = this.handleSelectJungle.bind(this);
@@ -71,55 +81,67 @@ export class FormApp extends React.Component<AppProps, ITestState> {
     }
 
     handleSelectTop(eventKey: any, event: any) {
-        console.log(event)
         this.setState({ topRegion: eventKey })
     }
 
     handleSelectJungle(eventKey: any, event: any) {
-        console.log(event)
         this.setState({ jungleRegion: eventKey })
     }
 
     handleSelectMid(eventKey: any, event: any) {
-        console.log(event)
         this.setState({ midRegion: eventKey })
     }
 
     handleSelectAdc(eventKey: any, event: any) {
-        console.log(event)
         this.setState({ adcRegion: eventKey })
     }
 
     handleSelectSupp(eventKey: any, event: any) {
-        console.log(event)
         this.setState({ suppRegion: eventKey })
     }
 
-   async handleRequest() {
-        
-        let top: string = this.state.topName + "#" + this.state.topRegion
-        let jungle: string = this.state.jungleName + "#" + this.state.jungleRegion
-        let mid: string = this.state.midName + "#" + this.state.midRegion
-        let adc: string = this.state.adcName + "#" + this.state.adcRegion
-        let supp: string = this.state.suppName + "#" + this.state.suppRegion
-        
-        const request = { 
-            top: top,
-            jungle : jungle,
-            mid : mid,
-            adc : adc,
-            support : supp,
-         };
-        console.log(request);
-        // const options = {
-        //     headers: {
-        //         'Access-Control-Allow-Origin': '<origin> | *',
-        //         'Access-Control-Allow-Credentials': 'true'        }
-        //   };
-          
-        // const response = await axios.post(SERVER_URL+"/", request,options);
-        const response = await axios.post(SERVER_URL+"/", request)
-        console.log(response)
+    setStateAsync(x: boolean) {
+        return new Promise((resolve) => {
+            this.setState({ load: x }
+            )
+        })
+    }
+
+    handleRequest() {
+
+        this.setState({ load: true }, () => {
+            this.setState({ load: true })
+            let top: string = this.state.topName + "#" + this.state.topRegion
+            let jungle: string = this.state.jungleName + "#" + this.state.jungleRegion
+            let mid: string = this.state.midName + "#" + this.state.midRegion
+            let adc: string = this.state.adcName + "#" + this.state.adcRegion
+            let supp: string = this.state.suppName + "#" + this.state.suppRegion
+    
+            const request = {
+                top: top,
+                jungle: jungle,
+                mid: mid,
+                adc: adc,
+                support: supp,
+            };
+    
+            let xlsx_name = this.state.topName + "_" + this.state.jungleName + "_" + this.state.midName + "_" + this.state.adcName + "_" + this.state.suppName + "_" + Date().toLocaleString()
+            axios.post(SERVER_URL + "/", request, { responseType: 'blob' }).then(function (response) {
+                console.log(response)
+                const blob = new Blob(
+                    [response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
+                const aEle = document.createElement('a');     // Create a label
+                const href = window.URL.createObjectURL(blob);       // Create downloaded link
+                aEle.href = href;
+                aEle.download = xlsx_name;  // File name after download
+                document.body.appendChild(aEle);
+                aEle.click();     // Click to download
+                document.body.removeChild(aEle); // Download complete remove element
+                window.URL.revokeObjectURL(href) // Release blob object
+            }).then(result => this.setState({
+                load: false,
+              }));
+          });
     }
 
     render() {
@@ -146,11 +168,11 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                             // className="danger"
                             title={this.state.topRegion}
                             id="input-group-dropdown-2"
-                           
+
                         >
-                            <Dropdown.Item onSelect={this.handleSelectTop}  eventKey="EUNE">EUNE</Dropdown.Item>
-                            <Dropdown.Item onSelect={this.handleSelectTop}  eventKey="EUW">EUW</Dropdown.Item>
-                            <Dropdown.Item onSelect={this.handleSelectTop}  eventKey="NA">NA</Dropdown.Item>
+                            <Dropdown.Item onSelect={this.handleSelectTop} eventKey="EUNE">EUNE</Dropdown.Item>
+                            <Dropdown.Item onSelect={this.handleSelectTop} eventKey="EUW">EUW</Dropdown.Item>
+                            <Dropdown.Item onSelect={this.handleSelectTop} eventKey="NA">NA</Dropdown.Item>
                         </DropdownButton>
                     </InputGroup>
                 </Form.Group>
@@ -268,15 +290,27 @@ export class FormApp extends React.Component<AppProps, ITestState> {
                     </InputGroup>
                 </Form.Group>
 
+                {!this.state.load ? (
+                    <Button
+                        className="btnFormSend"
+                        variant="dark"
+                        size="lg"
+                        onClick={this.handleRequest}
+                    >
+                        Scout!
+                    </Button>
 
-                <Button
-                    className="btnFormSend"
-                    variant="dark"
-                    size="lg"
-                    onClick={this.handleRequest}
-                >
-                    Scout!
-                </Button>
+                ) : (
+                        <FadeIn>
+                            <div className="row d-inline-block align-top">
+                                <h3>Scouting... It takes some time...</h3>
+                            </div>
+                            <div className="row d-inline-block align-top">
+                                <ReactLoading type={"bars"} color={"black"} />
+                            </div>
+                        </FadeIn>
+
+                    )}
             </Form>
 
 
