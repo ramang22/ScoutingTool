@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ScoutingTool/static/css/main.bde9b928.chunk.css",
-    "main.js": "/ScoutingTool/static/js/main.fe8762e1.chunk.js",
-    "main.js.map": "/ScoutingTool/static/js/main.fe8762e1.chunk.js.map",
+    "main.js": "/ScoutingTool/static/js/main.dbfa9a34.chunk.js",
+    "main.js.map": "/ScoutingTool/static/js/main.dbfa9a34.chunk.js.map",
     "runtime-main.js": "/ScoutingTool/static/js/runtime-main.8da75ece.js",
     "runtime-main.js.map": "/ScoutingTool/static/js/runtime-main.8da75ece.js.map",
     "static/css/2.658248ec.chunk.css": "/ScoutingTool/static/css/2.658248ec.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.658248ec.chunk.css",
     "static/js/2.a5df9c02.chunk.js",
     "static/css/main.bde9b928.chunk.css",
-    "static/js/main.fe8762e1.chunk.js"
+    "static/js/main.dbfa9a34.chunk.js"
   ]
 }
